@@ -6267,18 +6267,25 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered td {
     border: 1px solid #dee2e6 !important; } }
 
+div, span, ul, ol, li, dd, dt, table, td, th, tr, em, i, strong, b, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: inherit; }
+
 body {
-  background: #5544aa;
+  background: #00585E;
   color: #ffffff;
-  font-family: Helvetica, Calibri, sans-serif;
+  font-family: "Open Sans", Helvetica, Calibri, sans-serif;
   font-size: 24px; }
-  body .wrap {
-    width: 500px;
-    margin: 100px auto; }
-  body button {
-    -webkit-appearance: none;
-    border: 1px solid black;
-    background: #312761;
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 2px; }
+
+.content {
+  padding: 20px; }
+
+.blocks p:first-of-type {
+  letter-spacing: 0.2rem; }
+
+.blocks p:last-of-type {
+  font-family: "Josefin Sans", Helvetica, Calibri, sans-serif; }
+
+.blocks .border-top {
+  border-color: #00454a !important; }

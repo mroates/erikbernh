@@ -5,9 +5,11 @@
 // Variables
 
 // Colors
-$color1: #5544aa;
-$color2: #4433cc;
-$color3: #221199;
+$color1: #00585E;
+$color2: #009494;
+$color3: #454445;
+$color4: #F5F2DC;
+$color5: #FF5729;
 $color_white: #ffffff;
 
 
@@ -21,26 +23,38 @@ $border_radius_default: 2px;
 
 // Typography
 $fontsize_default: 24px;
-$fontfamily_default: Helvetica, Calibri, sans-serif;
+$fontfamily_default: 'Open Sans', Helvetica, Calibri, sans-serif;
+$fontfamily_heading: 'Josefin Sans', Helvetica, Calibri, sans-serif;
+$fontfamily_monospace: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
+// Reset
+div,span,ul,ol,li,dd,dt,table,td,th,tr,em,i,strong,b,h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+    line-height: inherit;
+}
 
 body {
     background: $color1;
     color: $color_white;
     font-family: $fontfamily_default;
     font-size: $fontsize_default;
+}
 
-    .wrap {
-        width: 500px;
-        margin: 100px auto;
+.content {
+    padding: $gutter_default;
+}
+
+.blocks {
+    p {
+        &:first-of-type {
+            letter-spacing: 0.2rem;
+        }
+        &:last-of-type {
+            font-family: $fontfamily_heading;
+        }
     }
-
-    button {
-        -webkit-appearance: none;
-        border: 1px solid darken($color1, 50);
-        background: darken($color1, 20);
-        color: $color_white;
-        padding: $gutter_default;
-        border-radius: $border_radius_default;
+    .border-top {
+        border-color: darken($color1, 4) !important;
     }
 }
