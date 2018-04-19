@@ -1,0 +1,17 @@
+body {
+  background: #5544aa;
+  color: #fff;
+  font-family: calibri;
+  font-size: 16px; }
+  body .wrap {
+    width: 500px;
+    margin: 100px auto;
+    font-size: 2rem; }
+  body button {
+    -webkit-appearance: none;
+    border: 1px solid black;
+    background: #312761;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-size: 2rem; }
