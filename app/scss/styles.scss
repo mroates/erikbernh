@@ -1,25 +1,46 @@
 // Import bootstrap
-// @import 'bootstrap';
+@import '../bower_components/bootstrap/scss/bootstrap';
+
+
+// Variables
+
+// Colors
+$color1: #5544aa;
+$color2: #4433cc;
+$color3: #221199;
+$color_white: #ffffff;
+
+
+// Gutters
+$gutter_default: 20px;
+$gutter_large: $gutter_default * 2;
+$gutter_small: $gutter_default / 2;
+
+// Borders
+$border_radius_default: 2px;
+
+// Typography
+$fontsize_default: 24px;
+$fontfamily_default: Helvetica, Calibri, sans-serif;
+
 
 body {
-    background: #5544aa;
-    color: #fff;
-    font-family: calibri;
-    font-size: 16px;
+    background: $color1;
+    color: $color_white;
+    font-family: $fontfamily_default;
+    font-size: $fontsize_default;
 
     .wrap {
         width: 500px;
         margin: 100px auto;
-        font-size: 2rem;
     }
 
     button {
         -webkit-appearance: none;
-        border: 1px solid darken(#5544aa, 50);
-        background: darken(#5544aa, 20);
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 2px;
-        font-size: 2rem;
+        border: 1px solid darken($color1, 50);
+        background: darken($color1, 20);
+        color: $color_white;
+        padding: $gutter_default;
+        border-radius: $border_radius_default;
     }
 }
