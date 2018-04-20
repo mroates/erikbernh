@@ -6281,11 +6281,38 @@ body {
 .content {
   padding: 20px; }
 
-.blocks p:first-of-type {
-  letter-spacing: 0.2rem; }
-
-.blocks p:last-of-type {
-  font-family: "Josefin Sans", Helvetica, Calibri, sans-serif; }
-
 .blocks .border-top {
   border-color: #00454a !important; }
+
+.text-spaced {
+  letter-spacing: 0.2rem; }
+
+.font-default {
+  font-family: "Open Sans", Helvetica, Calibri, sans-serif; }
+
+.font-heading {
+  font-family: "Josefin Sans", Helvetica, Calibri, sans-serif; }
+
+.color1 {
+  color: #00585E; }
+
+.color2 {
+  color: #009494; }
+
+.color3 {
+  color: #454445; }
+
+.color4 {
+  color: #F5F2DC; }
+
+.color5 {
+  color: #FF5729; }
+
+.color6 {
+  color: #F0CA4D; }
+
+.color7 {
+  color: #E37B40; }
+
+.color8 {
+  color: #77C4D3; }

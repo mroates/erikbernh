@@ -10,6 +10,9 @@ $color2: #009494;
 $color3: #454445;
 $color4: #F5F2DC;
 $color5: #FF5729;
+$color6: #F0CA4D;
+$color7: #E37B40;
+$color8: #77C4D3;
 $color_white: #ffffff;
 
 
@@ -47,14 +50,39 @@ body {
 
 .blocks {
     p {
-        &:first-of-type {
-            letter-spacing: 0.2rem;
-        }
-        &:last-of-type {
-            font-family: $fontfamily_heading;
-        }
     }
     .border-top {
         border-color: darken($color1, 4) !important;
     }
+}
+
+
+.text-spaced {
+    letter-spacing: 0.2rem;
+}
+
+.font-default {
+    font-family: $fontfamily_default;
+}
+
+.font-heading {
+    font-family: $fontfamily_heading;
+}
+
+
+
+// Haven't found a better way to do this as of now
+$colors: $color1, $color2, $color3, $color4, $color5, $color6, $color7, $color8;
+$variablenumbers: 1;
+
+// Get how many colors there are listed and append to the variable
+@for $i from $variablenumbers + 1 through length($colors) {
+    $variablenumbers: append($variablenumbers, $i); 
+}
+
+// Loop through the amount of colors
+@for $i from 1 through length($colors) {
+  .color#{nth($variablenumbers, $i)} {
+    color: nth($colors, $i);
+  }
 }
