@@ -5,16 +5,18 @@
 // Variables
 
 // Colors
-$color1: #00585E;
+$color1: #324D5C;
 $color2: #009494;
 $color3: #454445;
 $color4: #F5F2DC;
-$color5: #FF5729;
+$color5: #DE5B49;
 $color6: #F0CA4D;
 $color7: #E37B40;
-$color8: #77C4D3;
+$color8: #46B29D;
 $color_white: #ffffff;
 
+// Shadow
+$shadow_default: 0 2px 2px -2px rgba(0,0,0,0.3);
 
 // Gutters
 $gutter_default: 20px;
@@ -37,6 +39,11 @@ div,span,ul,ol,li,dd,dt,table,td,th,tr,em,i,strong,b,h1,h2,h3,h4,h5,h6 {
     line-height: inherit;
 }
 
+html, body {
+    min-height: 100%;
+    position: relative;
+}
+
 body {
     background: $color1;
     color: $color_white;
@@ -49,11 +56,19 @@ body {
 }
 
 .blocks {
-    p {
-    }
     .border-top {
         border-color: darken($color1, 4) !important;
     }
+}
+
+header {
+    background: darken($color1, 1);
+    box-shadow: $shadow_default;
+}
+
+footer {
+    background: darken($color1, 1);
+    box-shadow: $shadow_default;
 }
 
 
