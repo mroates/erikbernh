@@ -11,12 +11,13 @@ $color3: #454445;
 $color4: #F5F2DC;
 $color5: #DE5B49;
 $color6: #F0CA4D;
-$color7: #E37B40;
-$color8: #46B29D;
+$color7: #FA8658;
+$color8: #5BB59F;
 $color_white: #ffffff;
 
 // Shadow
 $shadow_default: 0 2px 2px -2px rgba(0,0,0,0.3);
+$shadow_reversed: inset 0 2px 2px -2px rgba($color2,0.3);
 
 // Gutters
 $gutter_default: 20px;
@@ -27,7 +28,7 @@ $gutter_small: $gutter_default / 2;
 $border_radius_default: 2px;
 
 // Typography
-$fontsize_default: 24px;
+$fontsize_default: 16px;
 $fontfamily_default: 'Open Sans', Helvetica, Calibri, sans-serif;
 $fontfamily_heading: 'Josefin Sans', Helvetica, Calibri, sans-serif;
 $fontfamily_monospace: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -37,6 +38,10 @@ div,span,ul,ol,li,dd,dt,table,td,th,tr,em,i,strong,b,h1,h2,h3,h4,h5,h6 {
     margin: 0;
     padding: 0;
     line-height: inherit;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $fontfamily_heading;
 }
 
 html, body {
@@ -62,15 +67,39 @@ body {
 }
 
 header {
-    background: darken($color1, 1);
+    background: lighten($color6, 5);
     box-shadow: $shadow_default;
+    border-bottom: 5px solid $color8;
+}
+
+nav {
+    .border-top {
+        border-color: darken($color6, 5) !important;
+    }
+}
+
+article {
+    max-width: 40em;
+    text-align: justify;
+    margin: 0 auto;
 }
 
 footer {
-    background: darken($color1, 1);
-    box-shadow: $shadow_default;
+    background: lighten($color1, 2);
+    box-shadow: $shadow_reversed;
 }
 
+.flex-grow {
+    flex: 1;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.full-viewport-height {
+    min-height: 100vh;
+}
 
 .text-spaced {
     letter-spacing: 0.2rem;
