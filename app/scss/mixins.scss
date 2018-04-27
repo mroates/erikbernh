@@ -1,0 +1,18 @@
+// Import variables
+@import "variables";
+
+// Haven't found a better way to do this as of now
+$colors: $color1, $color2, $color3, $color4, $color5, $color6, $color7, $color8;
+$variablenumbers: 1;
+
+// Get how many colors there are listed and append to the variable
+@for $i from $variablenumbers + 1 through length($colors) {
+    $variablenumbers: append($variablenumbers, $i); 
+}
+
+// Loop through the amount of colors
+@for $i from 1 through length($colors) {
+  .color#{nth($variablenumbers, $i)} {
+    color: nth($colors, $i);
+  }
+}

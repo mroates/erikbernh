@@ -1,0 +1,52 @@
+// Import variables
+@import "variables";
+
+// Reset
+div,span,ul,ol,li,dd,dt,table,td,th,tr,em,i,strong,b,h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+    line-height: inherit;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $fontfamily_heading;
+}
+
+html, body {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    background: $color1;
+    color: $color_white;
+    font-family: $fontfamily_default;
+    font-size: $fontsize_default;
+}
+
+ol, ul {
+    list-style-position: inside;
+}
+
+header {
+    background: lighten($color6, 5);
+    box-shadow: $shadow_default;
+    border-bottom: 5px solid $color8;
+}
+
+nav {
+    .border-top {
+        border-color: darken($color6, 5) !important;
+    }
+}
+
+article {
+    max-width: 40em;
+    text-align: justify;
+    margin: 0 auto;
+}
+
+footer {
+    background: lighten($color1, 2);
+    box-shadow: $shadow_reversed;
+}

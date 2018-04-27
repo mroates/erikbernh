@@ -1,0 +1,30 @@
+// Variables
+
+// Colors
+$color1: #324D5C;
+$color2: #009494;
+$color3: #454445;
+$color4: #F5F2DC;
+$color5: #DE5B49;
+$color6: #F0CA4D;
+$color7: #FA8658;
+$color8: #5BB59F;
+$color_white: #ffffff;
+
+// Shadow
+$shadow_default: 0 2px 2px -2px rgba(0,0,0,0.3);
+$shadow_reversed: inset 0 2px 2px -2px rgba($color2,0.3);
+
+// Gutters
+$gutter_default: 20px;
+$gutter_large: $gutter_default * 2;
+$gutter_small: $gutter_default / 2;
+
+// Borders
+$border_radius_default: 2px;
+
+// Typography
+$fontsize_default: 16px;
+$fontfamily_default: 'Open Sans', Helvetica, Calibri, sans-serif;
+$fontfamily_heading: 'Josefin Sans', Helvetica, Calibri, sans-serif;
+$fontfamily_monospace: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";

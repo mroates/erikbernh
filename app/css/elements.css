@@ -1,0 +1,37 @@
+div, span, ul, ol, li, dd, dt, table, td, th, tr, em, i, strong, b, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: inherit; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Josefin Sans", Helvetica, Calibri, sans-serif; }
+
+html, body {
+  min-height: 100%;
+  position: relative; }
+
+body {
+  background: #324D5C;
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica, Calibri, sans-serif;
+  font-size: 16px; }
+
+ol, ul {
+  list-style-position: inside; }
+
+header {
+  background: #f2d165;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.3);
+  border-bottom: 5px solid #5BB59F; }
+
+nav .border-top {
+  border-color: #eec335 !important; }
+
+article {
+  max-width: 40em;
+  text-align: justify;
+  margin: 0 auto; }
+
+footer {
+  background: #365363;
+  box-shadow: inset 0 2px 2px -2px rgba(0, 148, 148, 0.3); }
