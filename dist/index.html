@@ -25,75 +25,41 @@
                         <div class="container">
                             <span class="color1">
                                 <i class="fab fa-black-tie fa-3x color1"></i>
+                                <span class="h2" v-cloak>{{ headerText }}</span>
                             </span>
                         </div>
                         <div class="collapse navbar-collapse" id="navbar__content">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="nav-item active">
-                                <a class="nav-link border-top" href="#">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link border-top" href="#">Contact</a>
-                            </li>
+                                <navigation-item
+                                    v-for="item in nodes"
+                                    v-bind:node="item"
+                                    v-bind:key="item.id">
+                                </navigation-item>
                             </ul>
                         </div>
                         </nav>
             </header>
             <main class="container">
-                <p>Plain text: {{ message }}</p>
 
-                <p>Raw: <span v-html="rawHtml"></span></p>
-
-                <p>
-                    <a v-bind:href="someDefaultUrl">Testing a link</a>
-                </p>
-
-                <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">
-                    <p>{{ fullName }}</p>
-                </div>
-
-                <div class="static" v-bind:class="classObject">
-                    <p>{{ fullName }}</p>
-                </div>
-
-                <ol>
-                    <!-- Create an instance of the todo-item component -->
-                    <todo-item
-                        v-for="item in groceryList"
-                        v-bind:todo="item"
-                        v-bind:key="item.id">
-                    </todo-item>
-                </ol>
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col">
                         <section class="content blocks">
                             <div class="row text-center">
-                                <div class="col col-12 col-md-3 blocks__item my-5">
-                                    <i class="fas fa-birthday-cake fa-3x color7"></i>
-                                    <p class="h6 py-3 my-3 border-top border-bottom text-uppercase text-spaced">Age</p>
-                                    <p class="h1 font-heading">27 <span class="h6"> years</span></p>
-                                </div>
-                                <div class="col col-12 col-md-3 blocks__item my-5">
-                                    <i class="fas fa-stopwatch fa-3x color6"></i>
-                                    <p class="h6 py-3 my-3 border-top border-bottom text-uppercase text-spaced">Experience in field</p>
-                                    <p class="h1 font-heading">3.5 <span class="h6">years</span></p>
-                                </div>
-                                <div class="col col-12 col-md-3 blocks__item my-5">
-                                        <i class="fas fa-paint-brush fa-3x color8"></i>
-                                        <p class="h6 py-3 my-3 border-top border-bottom text-uppercase text-spaced">Creativity level</p>
-                                        <p class="h1 font-heading">8 <span class="h6">/ 10</span></p>
-                                    </div>
-                                <div class="col col-12 col-md-3 blocks__item my-5">
-                                    <i class="far fa-heart fa-3x color5"></i>
-                                    <p class="h6 py-3 my-3 border-top border-bottom text-uppercase text-spaced">Passion for design</p>
-                                    <p class="h1 font-heading">10 <span class="h6">/ 10</span></p>
-                                </div>
+                                <skill-item class="col col-12 col-md-3 blocks__item my-5"
+                                    v-for="item in skills"
+                                    v-bind:skill="item"
+                                    v-bind:key="item.id">
+                                </skill-item>
                             </div>
                         </section>
                     </div>
                 </div>
+
+                <div class="temp">
+                    {{ getTemp }}
+                </div>
     
-                <div class="row">
+                <!-- <div class="row">
                         <div class="col">
                             <section class="content">
                                 <article>
@@ -133,7 +99,7 @@
             <div class="row">
                 <div class="col">
                     <section class="content">
-                        <p class="h6">&copy; 2018</p>
+                        <p class="h6" v-cloak>&copy; {{ getDateYear }}</p>
                     </section>
                 </div>
             </div>

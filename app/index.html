@@ -27,6 +27,7 @@
                         <div class="container">
                             <span class="color1">
                                 <i class="fab fa-black-tie fa-3x color1"></i>
+                                <span class="h2" v-cloak>{{ headerText }}</span>
                             </span>
                         </div>
                         <div class="collapse navbar-collapse" id="navbar__content">
@@ -40,38 +41,107 @@
                         </div>
                         </nav>
             </header>
-            <main class="container">
+            <main role="main" class="container">
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col">
                         <section class="content blocks">
                             <div class="row text-center">
-                                <div class="col col-12 col-md-3 blocks__item my-5">
-                                    <i class="fas fa-birthday-cake fa-3x color7"></i>
-                                    <p class="h6 py-3 my-3 border-top border-bottom text-uppercase text-spaced">Age</p>
-                                    <p class="h1 font-heading">27 <span class="h6"> years</span></p>
-                                </div>
-                                <div class="col col-12 col-md-3 blocks__item my-5">
-                                    <i class="fas fa-stopwatch fa-3x color6"></i>
-                                    <p class="h6 py-3 my-3 border-top border-bottom text-uppercase text-spaced">Experience in field</p>
-                                    <p class="h1 font-heading">3.5 <span class="h6">years</span></p>
-                                </div>
-                                <div class="col col-12 col-md-3 blocks__item my-5">
-                                        <i class="fas fa-paint-brush fa-3x color8"></i>
-                                        <p class="h6 py-3 my-3 border-top border-bottom text-uppercase text-spaced">Creativity level</p>
-                                        <p class="h1 font-heading">8 <span class="h6">/ 10</span></p>
-                                    </div>
-                                <div class="col col-12 col-md-3 blocks__item my-5">
-                                    <i class="far fa-heart fa-3x color5"></i>
-                                    <p class="h6 py-3 my-3 border-top border-bottom text-uppercase text-spaced">Passion for design</p>
-                                    <p class="h1 font-heading">10 <span class="h6">/ 10</span></p>
-                                </div>
+                                <skill-item class="col col-12 col-md-3 blocks__item my-5"
+                                    v-for="item in skills"
+                                    v-bind:skill="item"
+                                    v-bind:key="item.id">
+                                </skill-item>
                             </div>
                         </section>
                     </div>
+                </div> -->
+
+                <div class="address row">
+                    <div class="col">
+                        <form v-on:submit.prevent="" class="my-5">
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                    <div class="input-group-text">Adress</div>
+                                    </div>
+                                    <input v-model="addressSearch" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Sök på stad eller adress">
+                                </div>
+                                </div>
+                                <div class="col-auto">
+                                <button v-on:click="fetchAddress(addressSearch)" type="submit" class="btn btn-primary mb-2">
+                                    Sök
+                                </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="temp row">
+                    <template v-for="object in getTemp">
+                        <div class="col col-12 mt-5" v-if="checkIfNewDay(object.validTime)">
+                            <h3 v-cloak>{{ formatDate(object.validTime) }}</h3>
+                        </div>
+                        <div class="col col-md-2 bg-dark">
+                            <div v-for="item in filterTemperature(object.parameters)" class="p-2">
+                                <span class="time" v-cloak>
+                                    {{ formatTime(object.validTime) }}
+                                </span>
+                                <span class="value float-right" v-cloak>
+                                    {{ item.values.join() }} &deg;{{ tempUnit }}
+                                </span>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- <div class="col-12">
+                        <div class="row">
+                            <div class="col-4">
+                                <div>DAG 1</div>
+                                <div>A</div>
+                                <div>B</div>
+                                <div>C</div>
+                            </div>
+                            <div class="col-4">
+                                <div>DAG 2</div>
+                                <div>A</div>
+                                <div>B</div>
+                                <div>C</div>
+                            </div>
+                            <div class="col-4">
+                                <div>DAG 3</div>
+                                <div>A</div>
+                                <div>B</div>
+                                <div>C</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <template v-for="object in getTemp">
+                        <span v-if="checkIfNewDay(object.validTime)">ABC</span>
+                        <div class="col col-12" v-bind:class="{ 'col-md-3' : isNewDay }">
+                            <div>
+                                <h3 v-cloak>{{ formatDate(object.validTime) }}</h3>
+                            </div>
+                            <section v-if="isNewDay">
+                                --------------- NEW DAY ---------------
+                            </section>
+                            <div v-for="item in filterTemperature(object.parameters)">
+                                <span class="time" v-cloak>
+                                    {{ formatTime(object.validTime) }}
+                                </span>
+                                <span class="value float-right" v-cloak>
+                                    {{ item.values.join() }} &deg;{{ tempUnit }}
+                                </span>
+                            </div>
+                        </div>
+                    </template> -->
                 </div>
     
-                <div class="row">
+                <!-- <div class="row">
                         <div class="col">
                             <section class="content">
                                 <article>
@@ -103,7 +173,7 @@
                                 </article>
                             </section>
                         </div>
-                    </div>
+                    </div> -->
             </main>
         </div>
         
@@ -111,7 +181,7 @@
             <div class="row">
                 <div class="col">
                     <section class="content">
-                        <p class="h6">&copy; 2018</p>
+                        <p class="h6" v-cloak>&copy; {{ getDateYear }}</p>
                     </section>
                 </div>
             </div>
@@ -127,8 +197,11 @@
         <script src="bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="bower_components/vue/dist/vue.js"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+
         <script src="js/components/todo-component.js"></script>
         <script src="js/components/nav-component.js"></script>
+        <script src="js/components/skills-component.js"></script>
         
         <script src="js/app.js"></script>
         <script src="js/main.js"></script>

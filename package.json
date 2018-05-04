@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "gulp-cache": "^1.0.2",
-    "gulp-imagemin": "^4.1.0"
+    "gulp-imagemin": "^4.1.0",
+    "vue-resource": "^1.5.0"
   }
 }
