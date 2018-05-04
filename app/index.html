@@ -7,9 +7,6 @@
 
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans" rel="stylesheet">
 <!-- build:css css/styles.min.css -->
-<!-- <link rel="stylesheet" type="text/css" href="css/variables.css">
-<link rel="stylesheet" type="text/css" href="css/mixins.css">
-<link rel="stylesheet" type="text/css" href="css/elements.css"> -->
 <link rel="stylesheet" type="text/css" href="css/app.css">
 <!-- endbuild -->
 
@@ -34,56 +31,18 @@
                         </div>
                         <div class="collapse navbar-collapse" id="navbar__content">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="nav-item active">
-                                <a class="nav-link border-top" href="#">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link border-top" href="#">Contact</a>
-                            </li>
+                                <navigation-item
+                                    v-for="item in nodes"
+                                    v-bind:node="item"
+                                    v-bind:key="item.id">
+                                </navigation-item>
                             </ul>
                         </div>
                         </nav>
             </header>
             <main class="container">
-                <p v-cloak>Plain text: {{ message }}</p>
 
-                <p>Raw: <span v-html="rawHtml"></span></p>
-
-                <p>
-                    <a v-bind:href="someDefaultUrl">Testing a link</a>
-                </p>
-
-                <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">
-                    <p v-cloak>{{ fullName }}</p>
-                </div>
-
-                <div v-if="type === 'A'">
-                A
-                </div>
-                <div v-else-if="type === 'B'">
-                B
-                </div>
-                <div v-else-if="type === 'C'">
-                C
-                </div>
-                <div v-else>
-                Not A, B or C
-                </div>
-
-
-                <div class="static" v-bind:class="classObject">
-                    <p v-cloak>{{ fullName }}</p>
-                </div>
-
-                <ol>
-                    <!-- Create an instance of the todo-item component -->
-                    <todo-item
-                        v-for="item in groceryList"
-                        v-bind:todo="item"
-                        v-bind:key="item.id">
-                    </todo-item>
-                </ol>
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col">
                         <section class="content blocks">
                             <div class="row text-center">
@@ -144,7 +103,7 @@
                                 </article>
                             </section>
                         </div>
-                    </div> -->
+                    </div>
             </main>
         </div>
         
@@ -169,6 +128,8 @@
         <script src="bower_components/vue/dist/vue.js"></script>
 
         <script src="js/components/todo-component.js"></script>
+        <script src="js/components/nav-component.js"></script>
+        
         <script src="js/app.js"></script>
         <script src="js/main.js"></script>
     <!-- endbuild -->
