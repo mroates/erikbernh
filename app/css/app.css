@@ -45,7 +45,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 @-ms-viewport {
   width: device-width; }
@@ -6270,26 +6270,74 @@ a.text-dark:hover, a.text-dark:focus {
 .color1 {
   color: #324D5C; }
 
+.bg1 {
+  background-color: #324D5C; }
+
+.border1 {
+  border: 1px solid #324D5C; }
+
 .color2 {
   color: #009494; }
+
+.bg2 {
+  background-color: #009494; }
+
+.border2 {
+  border: 1px solid #009494; }
 
 .color3 {
   color: #454445; }
 
+.bg3 {
+  background-color: #454445; }
+
+.border3 {
+  border: 1px solid #454445; }
+
 .color4 {
   color: #F5F2DC; }
+
+.bg4 {
+  background-color: #F5F2DC; }
+
+.border4 {
+  border: 1px solid #F5F2DC; }
 
 .color5 {
   color: #DE5B49; }
 
+.bg5 {
+  background-color: #DE5B49; }
+
+.border5 {
+  border: 1px solid #DE5B49; }
+
 .color6 {
   color: #F0CA4D; }
+
+.bg6 {
+  background-color: #F0CA4D; }
+
+.border6 {
+  border: 1px solid #F0CA4D; }
 
 .color7 {
   color: #FA8658; }
 
+.bg7 {
+  background-color: #FA8658; }
+
+.border7 {
+  border: 1px solid #FA8658; }
+
 .color8 {
   color: #5BB59F; }
+
+.bg8 {
+  background-color: #5BB59F; }
+
+.border8 {
+  border: 1px solid #5BB59F; }
 
 div, span, ul, ol, li, dd, dt, table, td, th, tr, em, i, strong, b, h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -6349,6 +6397,9 @@ footer {
 
 .text-spaced {
   letter-spacing: 0.2rem; }
+
+.text-big {
+  font-size: 1.3rem; }
 
 .font-default {
   font-family: "Open Sans", Helvetica, Calibri, sans-serif; }

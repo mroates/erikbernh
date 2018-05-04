@@ -59,7 +59,7 @@
 
                 <div class="address row">
                     <div class="col">
-                        <form v-on:submit.prevent="" class="my-5">
+                        <form v-on:submit.prevent="" class="mt-5">
                             <div class="form-row align-items-center">
                                 <div class="col-auto">
                                 <div class="input-group mb-2">
@@ -84,12 +84,12 @@
                         <div class="col col-12 mt-5" v-if="checkIfNewDay(object.validTime)">
                             <h3 v-cloak>{{ formatDate(object.validTime) }}</h3>
                         </div>
-                        <div class="col col-md-2 bg-dark">
-                            <div v-for="item in filterTemperature(object.parameters)" class="p-2">
-                                <span class="time" v-cloak>
+                        <div class="col col-md-2">
+                            <div v-for="item in filterTemperature(object.parameters)" class="my-2 p-2 bg2 rounded border8">
+                                <span class="time color4 text-big" v-cloak>
                                     {{ formatTime(object.validTime) }}
                                 </span>
-                                <span class="value float-right" v-cloak>
+                                <span class="value color4 text-big float-right" v-cloak>
                                     {{ item.values.join() }} &deg;{{ tempUnit }}
                                 </span>
                             </div>
