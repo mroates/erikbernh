@@ -19,6 +19,9 @@
 .text-spaced {
   letter-spacing: 0.2rem; }
 
+.text-big {
+  font-size: 1.3rem; }
+
 .font-default {
   font-family: "Open Sans", Helvetica, Calibri, sans-serif; }
 

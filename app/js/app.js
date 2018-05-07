@@ -84,15 +84,7 @@ var app = new Vue({
           this.$http.get('http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/' + lng + '/lat/' + lat + '/data.json')
           .then(response => {
             vm.getTemp = response.data.timeSeries;
-            // or like this this.getTemp = response.json()
-
-            // http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/15.232/lat/58.241/data.json
-            // http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/15.6213728/lat/58.41080700000001/data.json
          });
-         //,
-              // function (data) {
-              //     vm.getTemp = data;
-              // }
       },
       fetchAddress (city) {
         if (typeof(city) != 'undefined' && city !== '') {
@@ -101,12 +93,15 @@ var app = new Vue({
           this.$http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(city))
           .then(response => {
             vm.getAddress = response.data.results[0];
-            var geo = vm.getAddress.geometry;
+            
+            if (vm.getAddress) {
+              var geo = vm.getAddress.geometry;
 
-            var lng = new Number(geo.location.lng).toFixed(4);
-            var lat = new Number(geo.location.lat).toFixed(4);
+              var lng = new Number(geo.location.lng).toFixed(4);
+              var lat = new Number(geo.location.lat).toFixed(4);
 
-            vm.fetchTemp(lng, lat);
+              vm.fetchTemp(lng, lat);
+            }
          });
         }
       },

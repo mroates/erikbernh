@@ -15,4 +15,12 @@ $variablenumbers: 1;
   .color#{nth($variablenumbers, $i)} {
     color: nth($colors, $i);
   }
+
+  .bg#{nth($variablenumbers, $i)} {
+    background-color: nth($colors, $i);
+  }
+
+  .border#{nth($variablenumbers, $i)} {
+    border: 1px solid nth($colors, $i);
+  }
 }
