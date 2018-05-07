@@ -48,3 +48,12 @@
 
 .border-grey {
   border: 1px solid #ced4da; }
+
+.day {
+  float: left;
+  width: calc((100% / 7) - 20px);
+  margin-right: 20px; }
+  .day:nth-child(7n+1) {
+    clear: left; }
+  .day.current {
+    background-color: blue; }

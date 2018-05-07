@@ -79,8 +79,8 @@
                     </div>
                 </div>
 
-                <div class="temp row no-gutters">
-                    <template v-for="object in getTemp">
+                <div class="temp row">
+                    <!-- <template v-for="object in getTemp">
                         <section class="col col-12 mt-5" v-if="checkIfNewDay(object.validTime)">
                             <h3 v-cloak>{{ formatDate(object.validTime) }}</h3>
                         </section>
@@ -94,7 +94,33 @@
                                 </div>
                             </div>
                         </div>
-                    </template>
+                    </template> -->
+
+                    <!-- item : This is each day -->
+                    <div class="col col-12">
+                        <template v-for="item in getTemp">
+                            <div class="day" v-bind:class="{ 'current' : isThisDay(item[0].validTime) }">
+                            <h4 class="" v-cloak>{{ formatDate(item[0].validTime) }}</h4>
+    
+                            <!-- object : this is parameters -->
+                            <div class="clearfix" v-for="object in item">
+                                <!-- <section class="col col-12 mt-5" v-if="checkIfNewDay(object.validTime)">
+                                    <h3 v-cloak>{{ formatDate(object.validTime) }}</h3>
+                                </section> -->
+                                <div class="">
+                                    <div v-for="item in filterTemperature(object.parameters)" class="my-1 rounded overflow-hidden">
+                                        <div class="time color3 text-center p-2 bg4 border-grey" v-cloak>
+                                            {{ formatTime(object.validTime) }}
+                                        </div>
+                                        <div class="value color3 text-center p-2 bg-white border-white" v-cloak>
+                                            {{ item.values.join() }} &deg;{{ tempUnit }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </template>
+                    </div>
 
                     <!-- <div class="col-12">
                         <div class="row">

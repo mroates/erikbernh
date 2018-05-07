@@ -69,3 +69,18 @@
 .border-grey {
     border: 1px solid $color_greylight;
 }
+
+
+.day {
+    float: left;
+    width: calc((100% / 7) - #{$gutter_default});
+    margin-right: $gutter_default;
+
+    &:nth-child(7n+1) {
+        clear: left;
+    }
+
+    &.current {
+        background-color: blue;
+    }
+}

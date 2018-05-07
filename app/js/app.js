@@ -83,7 +83,10 @@ var app = new Vue({
           //this.$http.get('api.openweathermap.org/data/2.5/weather?q=Normal&units=imperial&APPID=MYAPPID'),
           this.$http.get('http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/' + lng + '/lat/' + lat + '/data.json')
           .then(response => {
-            vm.getTemp = response.data.timeSeries;
+            var groupedArray = filterArray(response.data.timeSeries);
+            vm.getTemp = groupedArray;
+
+            console.log(vm.getTemp);
          });
       },
       fetchAddress (city) {
@@ -106,7 +109,7 @@ var app = new Vue({
         }
       },
       filterTemperature (array) {
-        return array.filter(parameter => parameter.name === 't'); // parameter name 't' is for temperature
+        return array.filter(parameter => parameter.name === 't');
       },
       checkIfNewDay (dateString) {
         var date = new Date(dateString).toLocaleDateString();
@@ -135,6 +138,12 @@ var app = new Vue({
           hour: '2-digit', 
           minute:'2-digit' 
         });
+      },
+      isThisDay (dateToCompare) {
+        var today = new Date().toLocaleDateString(),
+            newDateToCompare = new Date(dateToCompare).toLocaleDateString();
+        console.log(today, newDateToCompare);
+        return newDateToCompare === today;
       }
   }
   });
