@@ -1,11 +1,20 @@
 [v-cloak] {
   display: none; }
 
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
 .content {
   padding: 20px; }
 
 .blocks .border-top {
   border-color: #2b424f !important; }
+
+.overflow-hidden {
+  overflow: hidden; }
 
 .flex-grow {
   flex: 1; }
@@ -22,8 +31,20 @@
 .text-big {
   font-size: 1.3rem; }
 
+.text-small {
+  font-size: 0.9rem; }
+
 .font-default {
   font-family: "Open Sans", Helvetica, Calibri, sans-serif; }
 
 .font-heading {
   font-family: "Josefin Sans", Helvetica, Calibri, sans-serif; }
+
+.bg-white {
+  background-color: #ffffff; }
+
+.border-white {
+  border: 1px solid #ffffff; }
+
+.border-grey {
+  border: 1px solid #ced4da; }

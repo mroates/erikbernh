@@ -5,6 +5,13 @@
     display: none;
 }
 
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+
 .content {
     padding: $gutter_default;
 }
@@ -13,6 +20,10 @@
     .border-top {
         border-color: darken($color1, 4) !important;
     }
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 
 .flex-grow {
@@ -35,6 +46,10 @@
     font-size: 1.3rem;
 }
 
+.text-small {
+    font-size: 0.9rem;
+}
+
 .font-default {
     font-family: $fontfamily_default;
 }
@@ -43,4 +58,14 @@
     font-family: $fontfamily_heading;
 }
 
+.bg-white {
+    background-color: $color_white;
+}
 
+.border-white {
+    border: 1px solid $color_white;
+}
+
+.border-grey {
+    border: 1px solid $color_greylight;
+}

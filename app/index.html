@@ -79,19 +79,19 @@
                     </div>
                 </div>
 
-                <div class="temp row">
+                <div class="temp row no-gutters">
                     <template v-for="object in getTemp">
-                        <div class="col col-12 mt-5" v-if="checkIfNewDay(object.validTime)">
+                        <section class="col col-12 mt-5" v-if="checkIfNewDay(object.validTime)">
                             <h3 v-cloak>{{ formatDate(object.validTime) }}</h3>
-                        </div>
-                        <div class="col col-md-2">
-                            <div v-for="item in filterTemperature(object.parameters)" class="my-2 p-2 bg2 rounded border8">
-                                <span class="time color4 text-big" v-cloak>
+                        </section>
+                        <div class="col col-md-1 mr-2">
+                            <div v-for="item in filterTemperature(object.parameters)" class="my-1 rounded overflow-hidden">
+                                <div class="time color3 text-center p-2 bg4 border-grey" v-cloak>
                                     {{ formatTime(object.validTime) }}
-                                </span>
-                                <span class="value color4 text-big float-right" v-cloak>
+                                </div>
+                                <div class="value color3 text-center p-2 bg-white border-white" v-cloak>
                                     {{ item.values.join() }} &deg;{{ tempUnit }}
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </template>
