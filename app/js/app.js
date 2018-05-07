@@ -6,7 +6,7 @@ var app = new Vue({
       'skill-item' : SkillItem
     },
     data: {
-      headerText: 'erikb.',
+      headerText: 'Test med VueJS',
       tempUnit: 'C',
       nodes: [
         { id: 1, name: 'Portfolio', url: '/portfolio' },
@@ -84,8 +84,6 @@ var app = new Vue({
           this.$http.get('http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/' + lng + '/lat/' + lat + '/data.json')
           .then(response => {
             vm.getTemp = response.data.timeSeries;
-
-            console.log(vm.getTemp);
             // or like this this.getTemp = response.json()
 
             // http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/15.232/lat/58.241/data.json
