@@ -5,78 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 function ClickAction() {
-  console.log("HEJA HEJA!");
 };
-
-
-  
-
-  var constructicons = [
-    // {
-    //   time: '10:00',
-    //   valueTemp: '9',
-    //   validTime: '2018-05-06'
-    // },
-    // {
-    //   time: '11:00',
-    //   valueTemp: '9',
-    //   validTime: '2018-05-06'
-    // },
-    // {
-    //   time: '11:00',
-    //   valueTemp: '15',
-    //   validTime: '2018-05-07'
-    // },
-    // {
-    //   time: '12:00',
-    //   valueTemp: '10',
-    //   validTime: '2018-05-07'
-    // },
-    
-    {
-      validTime:	'2018-05-03T11:00:00Z',		
-      parameters: [
-        {
-          name:	't',
-          unit:	'c',
-          values: [10]
-        }
-      ],
-    },
-    {
-      validTime:	'2018-05-03T12:00:00Z',		
-      parameters: [
-        {
-          name:	't',
-          unit:	'c',
-          values: [10]
-        }
-      ],
-    },
-    {
-      validTime:	'2018-05-04T12:00:00Z',		
-      parameters: [
-        {
-          name:	't',
-          unit:	'c',
-          values: [10]
-        }
-      ],
-    },
-    {
-      validTime:	'2018-05-04T13:00:00Z',		
-      parameters: [
-        {
-          name:	't',
-          unit:	'c',
-          values: [10]
-        }
-      ],
-    }
-
-  ];
-
-  //var test = filterArray(constructicons);
 
   var lastValueOfValidTime = "";
 
@@ -90,8 +19,11 @@ function ClickAction() {
       var itemDate = new Date(item.validTime).toLocaleDateString(),
           itemTime = new Date(item.validTime).toLocaleTimeString();
 
+      item.isActive = false;
+
       if (lastValueOfValidTime == "") {
         lastValueOfValidTime = itemDate;
+        newArray.push([item]);
       }
       else if (itemDate == lastValueOfValidTime) {
         if (newArray && newArray.length > 0) {
@@ -100,7 +32,6 @@ function ClickAction() {
       }
       else if (itemDate != lastValueOfValidTime) {
         newArray.push([item]);
-
         lastValueOfValidTime = itemDate;
       }
 

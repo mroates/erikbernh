@@ -73,14 +73,14 @@
 
 .day {
     float: left;
-    width: calc((100% / 7) - #{$gutter_default});
-    margin-right: $gutter_default;
+    width: #{100% / 7};
+    padding: $gutter_default / 2;
 
     &:nth-child(7n+1) {
         clear: left;
     }
 
-    &.current {
-        background-color: blue;
-    }
+    // &.current {
+    //     background-color: $color2;
+    // }
 }

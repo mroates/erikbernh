@@ -65,14 +65,6 @@ var app = new Vue({
           return new Date().getFullYear();
         }
       },
-      // getIsNewDay: {
-      //   get () {
-      //     return this.isNewDay;
-      //   },
-      //   set (newValue) {
-      //     this.isNewDay = newValue;
-      //   }
-      // }
     },
     created: function () {
       //this.fetchTemp();
@@ -80,7 +72,6 @@ var app = new Vue({
     methods: {
       fetchTemp: function (lng, lat) {
         var vm = this;
-          //this.$http.get('api.openweathermap.org/data/2.5/weather?q=Normal&units=imperial&APPID=MYAPPID'),
           this.$http.get('http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/' + lng + '/lat/' + lat + '/data.json')
           .then(response => {
             var groupedArray = filterArray(response.data.timeSeries);
@@ -142,7 +133,7 @@ var app = new Vue({
       isThisDay (dateToCompare) {
         var today = new Date().toLocaleDateString(),
             newDateToCompare = new Date(dateToCompare).toLocaleDateString();
-        console.log(today, newDateToCompare);
+
         return newDateToCompare === today;
       }
   }

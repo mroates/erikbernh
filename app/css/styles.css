@@ -51,9 +51,7 @@
 
 .day {
   float: left;
-  width: calc((100% / 7) - 20px);
-  margin-right: 20px; }
+  width: 14.28571%;
+  padding: 10px; }
   .day:nth-child(7n+1) {
     clear: left; }
-  .day.current {
-    background-color: blue; }

@@ -70,7 +70,7 @@
                                 </div>
                                 </div>
                                 <div class="col-auto">
-                                <button v-on:click="fetchAddress(addressSearch)" type="submit" class="btn btn-primary mb-2">
+                                <button v-on:click="fetchAddress(addressSearch)" type="submit" class="btn btn-info mb-2">
                                     Sök
                                 </button>
                                 </div>
@@ -79,45 +79,43 @@
                     </div>
                 </div>
 
-                <div class="temp row">
-                    <!-- <template v-for="object in getTemp">
-                        <section class="col col-12 mt-5" v-if="checkIfNewDay(object.validTime)">
-                            <h3 v-cloak>{{ formatDate(object.validTime) }}</h3>
-                        </section>
-                        <div class="col col-md-1 mr-2">
-                            <div v-for="item in filterTemperature(object.parameters)" class="my-1 rounded overflow-hidden">
-                                <div class="time color3 text-center p-2 bg4 border-grey" v-cloak>
-                                    {{ formatTime(object.validTime) }}
-                                </div>
-                                <div class="value color3 text-center p-2 bg-white border-white" v-cloak>
-                                    {{ item.values.join() }} &deg;{{ tempUnit }}
-                                </div>
-                            </div>
-                        </div>
-                    </template> -->
-
+                <div class="temp row my-4">
                     <!-- item : This is each day -->
                     <div class="col col-12">
-                        <template v-for="item in getTemp">
-                            <div class="day" v-bind:class="{ 'current' : isThisDay(item[0].validTime) }">
-                            <h4 class="" v-cloak>{{ formatDate(item[0].validTime) }}</h4>
-    
-                            <!-- object : this is parameters -->
-                            <div class="clearfix" v-for="object in item">
-                                <!-- <section class="col col-12 mt-5" v-if="checkIfNewDay(object.validTime)">
-                                    <h3 v-cloak>{{ formatDate(object.validTime) }}</h3>
-                                </section> -->
-                                <div class="">
-                                    <div v-for="item in filterTemperature(object.parameters)" class="my-1 rounded overflow-hidden">
-                                        <div class="time color3 text-center p-2 bg4 border-grey" v-cloak>
-                                            {{ formatTime(object.validTime) }}
-                                        </div>
-                                        <div class="value color3 text-center p-2 bg-white border-white" v-cloak>
-                                            {{ item.values.join() }} &deg;{{ tempUnit }}
+                        <template v-for="(item, index) in getTemp">
+                            <div class="day rounded" v-bind:class="{ 'current bg-info' : isThisDay(item[0].validTime) }">
+                                <h4 class="text-center" v-cloak>{{ formatDate(item[0].validTime) }}</h4>
+        
+                                <!-- object : this is parameters -->
+                                <div class="clearfix" v-for="(object, key) in item">
+                                    <div class="" v-bind:class="{ ['collapse multi-collapse' + index] : key >= 3 }">
+                                        <div v-for="item in filterTemperature(object.parameters)" class="mb-1 rounded overflow-hidden">
+                                            <div class="time color3 text-center p-2 bg4 border-grey" v-cloak>
+                                                {{ formatTime(object.validTime) }}
+                                            </div>
+                                            <div class="value color3 text-center p-2 bg-white border-white" v-cloak>
+                                                {{ item.values.join() }} &deg;{{ tempUnit }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <button class="btn w-100" v-bind:class="[ isThisDay(item[0].validTime) ? 'btn-dark' : 'btn-info', item[0].isActive ? 'active' : '' ]" 
+                                    v-on:click="item[0].isActive = !item[0].isActive"
+                                    type="button" 
+                                    data-toggle="collapse" 
+                                    v-bind:data-target="['.multi-collapse' + index]"
+                                    aria-expanded="false">
+                                    <template v-if="item[0].isActive">
+                                        <span>
+                                            <i class="fas fa-angle-up"></i>
+                                        </span>
+                                    </template>
+                                    <template v-else>
+                                        <span>
+                                            <i class="fas fa-angle-down"></i>
+                                        </span>
+                                    </template>
+                                </button>
                             </div>
                         </template>
                     </div>
